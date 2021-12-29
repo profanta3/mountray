@@ -1,0 +1,39 @@
+<nav class="navbar navbar-expand-lg sticky-top top-header">
+    <div class="container-sm">
+        <a class="navbar-brand text-gold" href="/home">Mountray</a>
+        
+        <!--<a href="" class="navbar-brand">
+            <img src="assets/mountray-logo.png" alt="Mountray Logo" width="150" height="35">
+        </a>
+        -->
+      
+        <button class="navbar-toggler btn btn-header" 
+            type="button"
+            data-toggle="collapse"
+            (click)="isShown=!isShown"
+        >
+            <i class="bi bi-list-nested"></i>
+        </button>
+        
+  
+        <div class="collapse navbar-collapse" [ngClass]="{ 'show': isShown }">
+            <ul class="navbar-nav me-auto">
+                <li class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
+                    <a class="nav-link text-egg" [routerLink]="['/search']">Search</a>
+                </li>
+                <li class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
+                    <a class="nav-link text-egg" [routerLink]="['/browse']">Browse</a>
+                </li>
+            </ul>
+            
+            <div class="d-flex">
+                <div class="navbar-nav" *ngIf="authService.isLoggedIn" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
+                    <a class="nav-link text-egg" [routerLink]="['/admin']">Admin</a>
+                </div>
+                <button class="btn btn-header" (click)="logout()" *ngIf="authService.isLoggedIn"><i class="bi bi-box-arrow-in-left"></i> Logout</button>
+                <button class="btn btn-header" *ngIf="!authService.isLoggedIn" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}" routerLink="/admin"><i class="bi bi-box-arrow-in-right"></i> Login</button>
+            </div>
+        </div>
+    </div>
+  </nav>
+<div class="mt-4"></div>

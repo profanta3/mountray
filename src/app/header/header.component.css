@@ -1,0 +1,19 @@
+.top-header {
+    background-color: #3D405B;
+    color: #F2CC8F;
+}
+
+.active>a {
+    /*background-color: #F2CC8F;
+    color: #3D405B;*/
+}
+
+.nav-link {
+    border-radius: 17.5%;
+}
+
+.nav-link:hover {
+    color: #F2CC8F;
+    background-color: #2E3045;
+    
+}

@@ -1,1 +1,80 @@
 /* You can add global styles to this file, and also import other style files */
+/* You can add global styles to this file, and also import other style files */
+@import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
+@import "~bootstrap-icons/font/bootstrap-icons.css";
+
+
+.navbar {
+    border-radius: 0px !important;
+}
+
+.text-egg {
+    color: #F4F1DE;
+}
+
+.text-terra {
+    color: #E07A5F;
+}
+
+.text-blue {
+    color: #3D405B;
+}
+
+.text-green {
+    color: #81B29A;
+}
+
+.text-gold {
+    color: #F2CC8F !important;
+}
+
+.cont-egg {
+    background-color: #F4F1DE;
+}
+
+.cont-terra {
+    background-color: #E07A5F;
+}
+
+.cont-blue {
+    background-color: #3D405B;
+}
+
+.cont-green {
+    background-color: #81B29A;
+}
+
+.cont-gold {
+    background-color: #F2CC8F;   
+}
+
+body {
+    background-color: #F4F1DE;
+}
+
+.btn-header {
+    background-color: #E07A5F;
+    color: white;
+}
+
+.btn-header:hover {
+    background-color: #DA603F;
+    color: white;
+}
+
+.btn-footer {
+    background-color: #81B29A;
+    color: white;
+}
+
+.btn-footer:hover {
+    background-color: #81B29A;
+    color: white;
+}
+/*
+* eggshell:     #F4F1DE
+* terra cotta:  #E07A5F
+* blue:         #3D405B
+* green sheen:  #81B29A
+* gold:         #F2CC8F
+*/
