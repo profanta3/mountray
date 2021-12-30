@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DatahandlerService } from '../datahandler.service';
 
 @Component({
   selector: 'app-browse',
@@ -7,9 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BrowseComponent implements OnInit {
 
-  constructor() { }
+  constructor(private dataHandler: DatahandlerService) { }
 
   ngOnInit(): void {
+    this.getData();
+  }
+
+  getData() {
+    this.dataHandler.getData()
+    .subscribe(data => {
+      console.log(data);
+    })
   }
 
 }

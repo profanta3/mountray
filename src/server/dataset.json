@@ -1,0 +1,39 @@
+{
+    "mountains": [
+        {
+            "id": 1,
+            "name": "Kordilleren Südamerikas",
+            "imageUrl": "https://de.wikipedia.org/wiki/Himalaya#/media/Datei:Himalaya_composite.jpg",
+            "place": "Südamerika",
+            "length": 9600
+        },
+        {
+            "id": 2,
+            "name": "Pazifische Küstengebirge in Nordamerika",
+            "imageUrl": "https://de.wikipedia.org/wiki/Himalaya#/media/Datei:Himalaya_composite.jpg",
+            "place": "Nordamerika",
+            "length": 6700
+        },
+        {
+            "id": 3,
+            "name": "Innere Kordilleren Nordamerikas",
+            "imageUrl": "https://de.wikipedia.org/wiki/Himalaya#/media/Datei:Himalaya_composite.jpg",
+            "place": "Nordamerika",
+            "length": 6400
+        },
+        {
+            "id": 4,
+            "name": "Hindukusch-Karakorum-Himalaya-Kette",
+            "imageUrl": "https://de.wikipedia.org/wiki/Himalaya#/media/Datei:Himalaya_composite.jpg",
+            "place": "Nördl. Indischer Subkontinent",
+            "length": 5600
+        },
+        {
+            "id": 5,
+            "name": "Altun-Qilian-Kunlun-Kette",
+            "imageUrl": "https://de.wikipedia.org/wiki/Himalaya#/media/Datei:Himalaya_composite.jpg",
+            "place": "Tadschikistan, West- u. Zentral-China",
+            "length": 4900
+        }
+    ]
+}

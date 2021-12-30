@@ -12,6 +12,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { AdminModule } from './admin/admin.module';
 import { LoginComponent } from './auth/login/login.component';
 import { AuthRoutingModule } from './auth/auth-routing.module';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -27,10 +28,11 @@ import { AuthRoutingModule } from './auth/auth-routing.module';
   imports: [
     BrowserModule,
     AdminModule,
+    HttpClientModule,
     AuthRoutingModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [HttpClient],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
