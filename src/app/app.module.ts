@@ -13,6 +13,7 @@ import { AdminModule } from './admin/admin.module';
 import { LoginComponent } from './auth/login/login.component';
 import { AuthRoutingModule } from './auth/auth-routing.module';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { SearchComponent } from './search/search.component';
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
     HomeComponent,
     BrowseComponent,
     PageNotFoundComponent,
-    LoginComponent
+    LoginComponent,
+    SearchComponent
   ],
   imports: [
     BrowserModule,

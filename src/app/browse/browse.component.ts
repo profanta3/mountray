@@ -10,15 +10,19 @@ export class BrowseComponent implements OnInit {
 
   constructor(private dataHandler: DatahandlerService) { }
 
+  mList: any;
+
   ngOnInit(): void {
     this.getData();
   }
 
   getData() {
+    var jdata: string[] = []; 
     this.dataHandler.getData()
     .subscribe(data => {
-      console.log(data);
-    })
+      this.mList = data;
+      console.log(this.mList);
+    });
   }
 
 }
