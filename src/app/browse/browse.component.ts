@@ -18,7 +18,7 @@ export class BrowseComponent implements OnInit {
 
   getData() {
     var jdata: string[] = []; 
-    this.dataHandler.getData()
+    this.dataHandler.getDataLocal()
     .subscribe(data => {
       this.mList = data;
       console.log(this.mList);
