@@ -15,7 +15,6 @@ import { LoginComponent } from './auth/login/login.component';
 import { AuthRoutingModule } from './auth/auth-routing.module';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { SearchComponent } from './search/search.component';
-import { ApiComponent } from './api/api.component';
 
 
 @NgModule({
@@ -27,14 +26,13 @@ import { ApiComponent } from './api/api.component';
     BrowseComponent,
     PageNotFoundComponent,
     LoginComponent,
-    SearchComponent,
-    ApiComponent
+    SearchComponent
   ],
   imports: [
     BrowserModule,
+    ReactiveFormsModule,
     AdminModule,
     HttpClientModule,
-    ReactiveFormsModule,
     AuthRoutingModule,
     AppRoutingModule
   ],
