@@ -14,6 +14,7 @@ import { LoginComponent } from './auth/login/login.component';
 import { AuthRoutingModule } from './auth/auth-routing.module';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { SearchComponent } from './search/search.component';
+import { HelpComponent } from './help/help.component';
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import { SearchComponent } from './search/search.component';
     BrowseComponent,
     PageNotFoundComponent,
     LoginComponent,
-    SearchComponent
+    SearchComponent,
+    HelpComponent
   ],
   imports: [
     BrowserModule,

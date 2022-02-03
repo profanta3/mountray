@@ -1,0 +1,59 @@
+<div class="container">
+    <h2 class="heading-2">Introduction</h2>
+    <p>In this Article u can see out API Backend documentation to connect to our backend Server.</p>
+    <p>The default api endpoint is: <span class="mono">http://localhost:4200/api/v1/mountains</span></p> 
+    <h2 class="heading-2">CREATE</h2>
+    <p>
+        To create a new Database-Entry for a mountain just make a http post calls to the default endpoint.
+        The http body should contain the JSON body containing the following fields:
+    </p>
+        <ul class="mono">
+            <li class="">
+                "name"
+            </li>
+            <li class="">
+                "location"
+            </li>
+            <li class="">
+                "length"
+            </li>
+            <li class="">
+                "imageUrl"
+            </li>
+            <li class="">
+                "maxHight"
+            </li>
+        </ul>
+    <p>
+        Example:<br>
+        <span class="mono">POST http://localhost:4200/api/v1/mountains/</span> with <span class="mono">body=json_object</span>
+    </p>
+    <h2 class="heading-2">READ</h2>
+    <p>
+        You can either read the hole dataset by making a <span class="mono">http get</span> request to the default endpoint.
+        Or, if you want a specific entry, append the corresponding id the the url.
+    </p>
+    <p>
+        Example:<br>
+        <span class="mono">GET http://localhost:4200/api/v1/mountains</span><br>
+        or:<br>
+        <span class="mono">GET http://localhost:4200/api/v1/mountains/2</span>
+    </p>
+    <h2 class="heading-2">UPDATE</h2>
+    <p>
+        To update a specific entry make a <span class="mono">http put</span> calls to the endpoint with the
+        corresponding id as suffix. The <span class="mono">html body</span> should still contain the json object. With the updated values.
+    </p>
+    <p>
+        Example:<br>
+        <span class="mono">put http://localhost:4200/api/v1/mountains/2</span> with <span class="mono">body=json_object</span>
+    </p>
+    <h2 class="heading-2">DELETE</h2>
+    <p>
+        To delete an entry just make a <span class="mono">http delete</span> request to the default endpoint and append the corresponding id of the entry.
+    </p>
+    <p>
+        Example:<br>
+        <span class="mono">delete http://localhost:4200/api/v1/mountains/2</span>
+    </p>
+</div>
