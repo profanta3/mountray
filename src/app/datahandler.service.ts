@@ -8,10 +8,10 @@ export class DatahandlerService {
 
   constructor(private http: HttpClient) { }
 
-  getData() {
-    //return this.http.get("https://raw.githubusercontent.com/profanta3/mountray/master/src/server/dataset.json?token=GHSAT0AAAAAABRFYKLOXBU4TRIPXYJMLAUWYP2TIKA");
-    //return this.http.get("http://127.0.0.1:3000/mountains");
-    return this.http.get("https://raw.githubusercontent.com/profanta3/SPA/main/server/dataset.json");
+  private baseUrl = "http://127.0.0.1:4200/api/v1/mountains"
+
+  getData(id: number) {
+    return this.http.get(`${this.baseUrl}/${id}`);
   }
 
   putData(newMountain: object) {
@@ -22,7 +22,18 @@ export class DatahandlerService {
 
   getDataLocal() {
     //return this.http.get("https://raw.githubusercontent.com/profanta3/mountray/master/src/server/dataset.json?token=GHSAT0AAAAAABRFYKLOXBU4TRIPXYJMLAUWYP2TIKA");
-    return this.http.get("http://127.0.0.1:4200/api/v1/mountains");
+    return this.http.get(`${this.baseUrl}`);
     //return this.http.get("https://raw.githubusercontent.com/profanta3/SPA/main/server/dataset.json");
+  }
+
+  editData(id: number, newMountain: object) {
+    const headers = new HttpHeaders().set('Content-Type', 'application/json; charset=utf-8');
+    console.log("Send put request to : ", `${this.baseUrl}/${id}`);
+    console.log("...with body: ", JSON.stringify(newMountain));
+    return this.http.put(`${this.baseUrl}/${id}`, JSON.stringify(newMountain), {headers: headers})    
+  }
+
+  removeData(id: number) {
+    return this.http.delete(`${this.baseUrl}/${id}`);
   }
 }

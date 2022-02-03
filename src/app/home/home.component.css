@@ -1,11 +1,11 @@
 .hero-class {
     /* Use "linear-gradient" to add a darken background effect to the image (photographer.jpg). This will make the text easier to read */
-    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../../assets/sunflower.jpg");
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.3)), url("../../assets/mountain-3.jpg");
 
     /* Set a specific height */
     /*#min-height: 50% !important;
     height: 50%;*/
-    min-height: 90vh;
+    min-height: 87.82vh;
 
     /* Position and center the image to scale nicely on all screens */
     background-position: center;
@@ -14,7 +14,7 @@
     position: relative;
 
     margin-top: -1.5rem;
-    margin-bottom: -20px;
+    /*margin-bottom: -20px;*/
 }
 
 .hero-text {

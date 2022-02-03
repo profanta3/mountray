@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg sticky-top top-header">
+<nav class="navbar navbar-expand-lg sticky-top top-header shadow">
     <div class="container-sm">
         <a class="navbar-brand text-gold" href="/home">Mountray</a>
         
@@ -31,12 +31,12 @@
             
             <div class="d-flex justify-content-between">
                 <div class="navbar-nav" *ngIf="authService.isLoggedIn" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
-                    <a class="nav-link text-egg" [routerLink]="['/admin']">Admin</a>
+                    <a class="nav-link text-egg" [routerLinkActive]="['active']">Admin</a>
                 </div>
                 <button class="btn btn-header mx-2" (click)="logout()" *ngIf="authService.isLoggedIn"><i class="bi bi-box-arrow-in-left"></i> Logout</button>
                 <button class="btn btn-header" *ngIf="!authService.isLoggedIn" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}" routerLink="/admin"><i class="bi bi-box-arrow-in-right"></i> Login</button>
             </div>
         </div>
     </div>
-  </nav>
+</nav>
 <div class="mt-4"></div>

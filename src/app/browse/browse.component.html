@@ -1,6 +1,5 @@
 <div class="height">
     <div class="container mb-4">
-
         <div class="d-flex justify-content-between">
             <div class="d-flex">
                 
@@ -8,7 +7,7 @@
                 <h2 class="heading-2"><i class="bi bi-layout-text-sidebar"></i> Browse the Mountain Libary</h2>
             </div>
             <div>
-                <button class="btn btn-footer"><i class="bi bi-plus-square"></i> Add</button>
+                <button class="btn btn-footer" [routerLink]="['/admin/api/add']"><i class="bi bi-plus-square"></i> Add</button>
             </div>
         </div>
         <hr>
@@ -21,15 +20,16 @@
                     <div class="row">
                         <div class="col">
                             <p>Name: {{ item.name }}</p>
-                            <p>Ort: {{ item.place }}</p>
+                            <p>Ort: {{ item.location }}</p>
                             <p>Länge: {{ item.length }}</p>
-                            <button class="btn btn-footer">Edit</button>
+                            <p>Maximale Höhe: {{ item.maxHight }}</p>
+                            <button class="btn btn-footer" (click)="edit(item.id)">Edit</button>
+                            <button class="btn btn-danger mx-3" (click)="remove(item.id)">Remove</button>
                         </div>
                         <div class="col-3">
                             <img src="{{item.imageUrl}}" alt="{{item.name}}-Image" class="img-thumbnail">
                         </div>
                     </div>
-                    
                 </li>
             </ng-container>
         </ul>

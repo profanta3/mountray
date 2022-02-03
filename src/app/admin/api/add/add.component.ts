@@ -22,6 +22,12 @@ export class AddComponent implements OnInit {
   })
 
   onSubmit(): void {
+    if (this.mountainForm.value.name == "" || this.mountainForm.value.location == "" || this.mountainForm.value.length == "" ||
+      this.mountainForm.value.imageUrl == "" || this.mountainForm.value.maxHight == "") {
+        this.message = "Please fill every input";
+        this.mountainForm.reset();
+        return;
+      }
     let data = {
       "name": this.mountainForm.value.name,
       "location": this.mountainForm.value.location,
