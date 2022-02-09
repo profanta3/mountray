@@ -1,4 +1,25 @@
-<div class="container">
+<div class="container-liquid">
     <h3 class="heading-3">Admin Dashboard!</h3>
-    <p>Feel free to give feedback here</p>
+    <div class="container-liquid">
+        <ul class="list-group">
+            <ng-container *ngIf="mList">
+                <li class="list-group-item shadow mb-4" *ngFor="let item of mList">
+                    <div class="row">
+                        <div class="col">
+                            <p>Id: {{ item.id }}</p>
+                            <p>Name: {{ item.name }}</p>
+                            <p>Ort: {{ item.location }}</p>
+                            <p>Länge: {{ item.length }}</p>
+                            <p>Maximale Höhe: {{ item.maxHight }}</p>
+                            <button class="btn btn-footer" (click)="edit(item.id)">Edit</button>
+                            <button class="btn btn-danger mx-3" (click)="remove(item.id)">Remove</button>
+                        </div>
+                        <div class="col-3">
+                            <img src="{{item.imageUrl}}" alt="{{item.name}}-Image" class="img-thumbnail">
+                        </div>
+                    </div>
+                </li>
+            </ng-container>
+        </ul>
+    </div>
 </div>

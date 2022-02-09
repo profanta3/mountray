@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { DatahandlerService } from '../datahandler.service';
+import { AuthService } from '../auth/auth.service';
 
 @Component({
   selector: 'app-browse',
@@ -9,7 +10,8 @@ import { DatahandlerService } from '../datahandler.service';
 })
 export class BrowseComponent implements OnInit {
 
-  constructor(private dataHandler: DatahandlerService, private _router: Router) { }
+  constructor(private dataHandler: DatahandlerService) { }
+
 
   mList: any;
 
@@ -24,19 +26,5 @@ export class BrowseComponent implements OnInit {
       this.mList = data;
       console.log(this.mList);
     });
-  }
-
-  remove(ix: number) {
-    if (window.confirm("Delete Data?")) {
-      this.dataHandler.removeData(ix)
-      .subscribe(data  => {
-        this.mList = data;
-        console.log(this.mList);
-      });
-    }
-  }
-
-  edit(ix: number) {
-    this._router.navigate(['/admin/api/edit/', { id: ix}]);
   }
 }

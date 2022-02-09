@@ -16,6 +16,7 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { SearchComponent } from './search/search.component';
 import { HelpComponent } from './help/help.component';
 
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -32,11 +33,13 @@ import { HelpComponent } from './help/help.component';
   imports: [
     BrowserModule,
     AdminModule,
+    ReactiveFormsModule,
     HttpClientModule,
     AuthRoutingModule,
     AppRoutingModule
   ],
   providers: [HttpClient],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  exports: [BrowseComponent]
 })
 export class AppModule { }

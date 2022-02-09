@@ -36,4 +36,6 @@ export class DatahandlerService {
   removeData(id: number) {
     return this.http.delete(`${this.baseUrl}/${id}`);
   }
+
+  public currentFilteredList: string = "";
 }
