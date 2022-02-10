@@ -9,13 +9,14 @@ import { HomeComponent } from './home/home.component';
 import { BrowseComponent } from './browse/browse.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
+import { FormsModule } from '@angular/forms';
+
 import { AdminModule } from './admin/admin.module';
 import { LoginComponent } from './auth/login/login.component';
 import { AuthRoutingModule } from './auth/auth-routing.module';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { SearchComponent } from './search/search.component';
 import { HelpComponent } from './help/help.component';
-
 import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
@@ -36,6 +37,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     ReactiveFormsModule,
     HttpClientModule,
     AuthRoutingModule,
+    FormsModule,
     AppRoutingModule
   ],
   providers: [HttpClient],

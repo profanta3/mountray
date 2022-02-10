@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { DatahandlerService } from '../datahandler.service';
 
 @Component({
@@ -8,50 +8,72 @@ import { DatahandlerService } from '../datahandler.service';
   templateUrl: './search.component.html',
   styleUrls: ['./search.component.css']
 })
-export class SearchComponent implements OnInit {
+export class SearchComponent implements OnInit, OnChanges {
 
-  constructor(private dataHandler: DatahandlerService, private formBuilder: FormBuilder, private router: Router) { }
-
-  ngOnInit(): void {
-    this.getData();
+  constructor(private dataHandler: DatahandlerService, 
+    private formBuilder: FormBuilder, 
+    private routed: ActivatedRoute,
+    private router: Router) { 
+      this.router.routeReuseStrategy.shouldReuseRoute = function() {
+        return false;
+    };
   }
 
-  mList: any;
+  ngOnChanges(changes: SimpleChanges): void { }
+
+  ngOnInit(): void {
+    this.getData()
+    .subscribe(d => {
+      this.raw_data = d;
+      let x = this.raw_data.length;
+      
+      console.log("got List: ", this.raw_data);;
+
+      let ix = this.routed.snapshot.paramMap.get('s');
+      for (let item of this.raw_data) {
+        this.mList.push(item);
+        console.log("pushed: ", item);
+      }
+      this.fList = this.mList;
+
+      if (ix != null) {
+        this.searchTerm = ix;
+        this.listEntries();
+      }
+    })
+  }
+
+  @Input()
+  searchTerm = '';
+
+  search() {
+    this.listEntries();
+  }
+
+  raw_data: any;
+
+  mList: Object[] = []
+
+  fList: any[] = []
 
   searchForm = this.formBuilder.group({
     search: ''
   })
 
-  onSubmit() {
-    for (let item of this.mList) {
-      for (const [key, value] of Object.entries(item)) {
-        //console.log(`${key}: ${value}`);
-        if (`${value}`.includes(this.searchForm.value.search)) {
-          console.log("Hit with Values: ", `${value}`);
-          this.message += item;
-          break;
+  listEntries() {    
+    this.fList = this.mList.filter( (data) => {
+      for (const [key, value] of Object.entries(data)) {
+        if (`${value}`.toLowerCase().includes(this.searchTerm.toLowerCase()) && `${key}` != "imageUrl") {
+          return true;
         }
       }
-    }
-    this.dataHandler.currentFilteredList = this.message;
-    window.location.reload();
-    console.log("searched....")
-    //this.message = '<div><ul class="list-group"><ng-container *ngIf="mList"><li class="list-group-item shadow mb-4" *ngFor="let item of mList"><div class="row"><div class="col">      <p>Name: {{ item.name }}</p><p>Ort: {{ item.location }}</p><p>Länge: {{ item.length }}</p><p>Maximale Höhe: {{ item.maxHight }}</p></div><div class="col-3"><img src="{{item.imageUrl}}" alt="{{item.name}}-Image" class="img-thumbnail"></div></div></li></ng-container></ul></div>'
+      return false;
+    })
+    console.log(this.fList);
   }
 
   getData() {
-    if (this.dataHandler.currentFilteredList.length == 0) {
-      this.dataHandler.getDataLocal()
-      .subscribe(d => {
-        this.mList = d;
-      });
-    }
-    else {
-      this.mList = this.dataHandler.currentFilteredList;
-    }
+    return this.dataHandler.getDataLocal();
   }
-
-  message = "";
-
 }
 
