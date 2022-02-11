@@ -15,6 +15,9 @@ export class AdminDashboardComponent implements OnInit {
     this.getData();
   }
 
+  /**
+   * Get Data from Datahandler Service...
+   */
   getData() {
     var jdata: string[] = []; 
     this.dataHandler.getDataLocal()
@@ -24,8 +27,15 @@ export class AdminDashboardComponent implements OnInit {
     });
   }
 
+  /**
+   * List of Mountains fetched from backend
+   */
   mList: any;
   
+  /**
+   * Remove specific Mountain by API call
+   * @param ix id of mountain-entry to remove
+   */
   remove(ix: number) {
     if (window.confirm("Delete Data?")) {
       this.dataHandler.removeData(ix)
@@ -36,6 +46,10 @@ export class AdminDashboardComponent implements OnInit {
     }
   }
 
+  /**
+   * Edit a mountain by navigating to edit page and appending the id to the URL
+   * @param ix mountain to edit via API call
+   */
   edit(ix: number) {
     this._router.navigate(['/admin/api/edit/', { id: ix}]);
   }

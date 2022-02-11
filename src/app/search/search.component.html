@@ -4,7 +4,6 @@
   <div class="form-group mb-3">
     <input [(ngModel)]="searchTerm" class="form-control me-2" placeholder="Search" (ngModelChange)="search()" />
   </div>
-  <!-- <button class="btn btn-header" (click)="search()">Search</button> -->
   <hr>
   <div>
     <ul class="list-group">
@@ -26,80 +25,3 @@
     </ul>
   </div>
 </div>
-<!--
-  <li class="list-group-item shadow mb-4" *ngFor="let item of fList">
-            <div *ngFor="let prop of item | keyvalue">
-              <div class="row">
-                <div class="col">
-                    <div [ngSwitch]="prop.key" >
-                      <div *ngSwitchCase="'name'">
-                        <p>Name: {{prop.value }}</p>
-                      </div>
-                      <div *ngSwitchCase="'location'">
-                        <p>Location: {{prop.value }}</p>
-                      </div>
-                      <div *ngSwitchCase="'length'">
-                        <p>Length: {{prop.value }}</p>
-                      </div>
-                      <div *ngSwitchCase="'hight'">
-                        <p>Height: {{prop.value }}</p>
-                      </div>
-                    </div>
-                </div>
-                <div class="col-3" *ngIf="checkPrintImage(prop.key, 'imageUrl')">
-                  <img src="{{prop.value}}" alt="Mountain-Image" class="img-thumbnail">
-                </div>
-              </div>
-            </div>
-          </li>
-
-  <p>Name: {{ prop.key }} {{prop.value }}</p>
-                      <p>Ort: {{ prop.key }} {{prop.value }}</p>
-                      <p>Länge: {{ prop.key }} {{prop.value }}</p>
-                      <p>Maximale Höhe: {{ prop.key }} {{prop.value }}</p>
-
-
-  <div class="col-3">
-                      <img src="{{item.imageUrl}}" alt="{{item.name}}-Image" class="img-thumbnail">
-                  </div>
-  </li>
-                <div class="row">
-                    <div class="col">
-                        <p>Name: {{ item['name'] }}</p>
-                        <p>Ort: {{ item.location }}</p>
-                        <p>Länge: {{ item.length }}</p>
-                        <p>Maximale Höhe: {{ item.maxHight }}</p>
-                    </div>
-                    <div class="col-3">
-                        <img src="{{item.imageUrl}}" alt="{{item.name}}-Image" class="img-thumbnail">
-                    </div>
-                </div>
-            </li>
-
-
-  <form class="d-flex">
-    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-    <button class="btn btn-header" type="submit">Search</button>
-  </form> 
--->
-<!--
-<div>
-    <ul class="list-group">
-        <ng-container *ngIf="mList">
-            <li class="list-group-item shadow mb-4" *ngFor="let item of mList">
-                <div class="row">
-                    <div class="col">
-                        <p>Name: {{ item.name }}</p>
-                        <p>Ort: {{ item.location }}</p>
-                        <p>Länge: {{ item.length }}</p>
-                        <p>Maximale Höhe: {{ item.maxHight }}</p>
-                    </div>
-                    <div class="col-3">
-                        <img src="{{item.imageUrl}}" alt="{{item.name}}-Image" class="img-thumbnail">
-                    </div>
-                </div>
-            </li>
-        </ng-container>
-    </ul>
-  </div>
--->

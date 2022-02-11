@@ -16,6 +16,9 @@ export class HeaderComponent {
   ) { 
   }
 
+  /**
+   * Logs the USer out by calling the auth Service
+   */
   logout() {
     this.authService.logout();
     this.router.navigate(['/login']);

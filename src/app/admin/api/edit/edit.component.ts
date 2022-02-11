@@ -16,6 +16,7 @@ export class EditComponent implements OnInit {
   constructor(private dataHandler: DatahandlerService, private formBuilder: FormBuilder
     , private routed: ActivatedRoute) { }
 
+  //the Form for updating a mountain entry  
   mountainForm = this.formBuilder.group({
     id: '',
     name: '',
@@ -25,6 +26,10 @@ export class EditComponent implements OnInit {
     maxHight: ''
   })
 
+  /**
+   * Called when the Update Button is pressed to save the updated values to backend
+   * @returns 
+   */
   onSubmit(): void {
     if (this.mountainForm.value.name == "" || this.mountainForm.value.location == "" || this.mountainForm.value.length == "" ||
       this.mountainForm.value.imageUrl == "" || this.mountainForm.value.maxHight == "") {
@@ -32,6 +37,8 @@ export class EditComponent implements OnInit {
         this.mountainForm.reset();
         return;
       }
+
+    //Prepare JSON Body for API call...
     let data = {
       "name": this.mountainForm.value.name,
       "location": this.mountainForm.value.location,
@@ -39,11 +46,12 @@ export class EditComponent implements OnInit {
       "imageUrl": this.mountainForm.value.imageUrl,
       "maxHight": this.mountainForm.value.maxHight,
     }
+
+    //send the JSON Object to datahandler service and init API call
     this.dataHandler.editData(this.mountainForm.value.id, data).subscribe(data => {
       console.log("Reveived data: ", data);
     })
     this.message = "Succesfully updated Mountain: "+this.mountainForm.value.name;
-    //this.mountainForm.reset();
   }
 
   private current_id = 0
@@ -57,6 +65,11 @@ export class EditComponent implements OnInit {
     console.log("got id to edit: ", ix)
   }
 
+  /**
+   * Called when the EDIT Page is opened with a id as suffix.
+   * Fills the form with specific mountain entries
+   * @param ix id of mountain
+   */
   private fillForm(ix: number) {
     let mountain: any;
 
@@ -71,21 +84,5 @@ export class EditComponent implements OnInit {
         maxHight: mountain.maxHight
       });
     });
-  }
-
-  putMountain() {
-    let data = {
-      "id": 2,
-      "name": "Pazifische Küstengebirge in Nordamerika",
-      "location": "Nordamerika",
-      "length": 6700,
-      "imageUrl": "https://cdn.pixabay.com/photo/2015/07/27/17/14/mountains-862870_960_720.jpg",
-      "maxHight": 1234,
-    }
-    this.dataHandler.putData(data)
-    this.dataHandler.getDataLocal().subscribe( data => {
-      this.message = data;
-      console.log(this.message)
-    })
   }
 }

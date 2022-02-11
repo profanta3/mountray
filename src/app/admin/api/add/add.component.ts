@@ -13,6 +13,7 @@ export class AddComponent implements OnInit {
 
   constructor(private dataHandler: DatahandlerService, private formBuilder: FormBuilder) { }
 
+  //the Form for adding a new mountain entry  
   mountainForm = this.formBuilder.group({
     name: '',
     location: '',
@@ -21,6 +22,10 @@ export class AddComponent implements OnInit {
     maxHight: ''
   })
 
+  /**
+   * Called when the Add Button is pressed to save the new values to backend
+   * @returns 
+   */
   onSubmit(): void {
     if (this.mountainForm.value.name == "" || this.mountainForm.value.location == "" || this.mountainForm.value.length == "" ||
       this.mountainForm.value.imageUrl == "" || this.mountainForm.value.maxHight == "") {
@@ -28,6 +33,8 @@ export class AddComponent implements OnInit {
         this.mountainForm.reset();
         return;
       }
+    
+    //Prepare JSON Body for API call...
     let data = {
       "name": this.mountainForm.value.name,
       "location": this.mountainForm.value.location,
@@ -35,6 +42,8 @@ export class AddComponent implements OnInit {
       "imageUrl": this.mountainForm.value.imageUrl,
       "maxHight": this.mountainForm.value.maxHight,
     }
+
+    //send the JSON Object to datahandler service and init API call
     this.dataHandler.putData(data)
     this.message = "Succesfully added Mountain: "+this.mountainForm.value.name;
     this.mountainForm.reset();

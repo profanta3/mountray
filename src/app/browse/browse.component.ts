@@ -19,6 +19,9 @@ export class BrowseComponent implements OnInit {
     this.getData();
   }
 
+  /**
+   * Get Data from data Handler Service
+   */
   getData() {
     var jdata: string[] = []; 
     this.dataHandler.getDataLocal()

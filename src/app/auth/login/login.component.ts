@@ -21,19 +21,25 @@ export class LoginComponent {
     return 'Logged ' + (this.authService.isLoggedIn ? 'in' : 'out');
   }
 
+  /**
+   * logs the user in and navigates redirected URL
+   */
   login() {
     this.message = 'Trying to log in...';
 
     this.authService.login().subscribe(() => {
       this.message = this.getMessage();
       if (this.authService.isLoggedIn) {
-        const redirectUrl = '/admin';
+        const redirectUrl = this.authService.redirectUrl;
 
         this.router.navigate([redirectUrl]);
       }
     });
   }
 
+  /**
+   * Logs the user out by calling the auth Service module
+   */
   logout() {
     this.authService.logout();
     this.message = this.getMessage();

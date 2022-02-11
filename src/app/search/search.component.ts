@@ -21,6 +21,9 @@ export class SearchComponent implements OnInit, OnChanges {
 
   ngOnChanges(changes: SimpleChanges): void { }
 
+  /**
+   * get data from backend. Fetches URL parameter 's' to init search with Value of 's'
+   */
   ngOnInit(): void {
     this.getData()
     .subscribe(d => {
@@ -46,20 +49,29 @@ export class SearchComponent implements OnInit, OnChanges {
   @Input()
   searchTerm = '';
 
+  /**
+   * Search through dataset
+   */
   search() {
     this.listEntries();
   }
 
+  //Raw JSON data from API call
   raw_data: any;
 
+  //JSON data from API call
   mList: Object[] = []
 
+  //filtered JSON data for displaying in search results.
   fList: any[] = []
 
   searchForm = this.formBuilder.group({
     search: ''
   })
 
+  /**
+   * the filter function updates the fList to contain only the filtered results
+   */
   listEntries() {    
     this.fList = this.mList.filter( (data) => {
       for (const [key, value] of Object.entries(data)) {
@@ -72,6 +84,10 @@ export class SearchComponent implements OnInit, OnChanges {
     console.log(this.fList);
   }
 
+  /**
+   * Get Data from backend
+   * @returns data promise
+   */
   getData() {
     return this.dataHandler.getDataLocal();
   }

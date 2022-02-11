@@ -6,7 +6,6 @@ import { AdminComponent } from './admin/admin.component';
 import { AddComponent } from './api/add/add.component';
 import { ApiComponent } from './api/api.component';
 import { EditComponent } from './api/edit/edit.component';
-import { ManageDatasetComponent } from './manage-dataset/manage-dataset.component';
 
 
 const adminRoutes: Routes = [
@@ -19,7 +18,6 @@ const adminRoutes: Routes = [
       path: '',
       canActivateChild: [AuthGuard],
       children: [
-        { path: 'manage-dataset', component: ManageDatasetComponent},
         { 
           path: 'api', 
           component: ApiComponent,
@@ -33,8 +31,7 @@ const adminRoutes: Routes = [
         //{ path: '**', component: AdminDashboardComponent}
       ]
     }]
-  },
-  { path: 'manage-dataset', component: ManageDatasetComponent }
+  }
 ];
 
 @NgModule({
