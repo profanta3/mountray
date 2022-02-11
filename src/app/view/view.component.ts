@@ -36,8 +36,6 @@ export class ViewComponent implements OnInit {
   mountain: any = {}
 
   getUrl() {
-    console.log("URL: ", this.mountain.imageUrl);
-    console.log(String(this.mountain.imageUrl));
     let s = "linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.3)), ";
     return s + "url(' "+this.mountain.imageUrl+"')";
   }
