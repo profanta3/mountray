@@ -18,6 +18,7 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { SearchComponent } from './search/search.component';
 import { HelpComponent } from './help/help.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { ViewComponent } from './view/view.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     PageNotFoundComponent,
     LoginComponent,
     SearchComponent,
-    HelpComponent
+    HelpComponent,
+    ViewComponent
   ],
   imports: [
     BrowserModule,

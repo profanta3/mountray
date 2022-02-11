@@ -10,7 +10,7 @@ import { AuthService } from '../auth/auth.service';
 })
 export class BrowseComponent implements OnInit {
 
-  constructor(private dataHandler: DatahandlerService) { }
+  constructor(private dataHandler: DatahandlerService, private router: Router) { }
 
 
   mList: any;
@@ -29,5 +29,9 @@ export class BrowseComponent implements OnInit {
       this.mList = data;
       console.log(this.mList);
     });
+  }
+
+  view(ix:number) {
+    this.router.navigate(['/view', { id: ix}]);
   }
 }

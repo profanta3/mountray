@@ -15,7 +15,7 @@
                             <button class="btn btn-danger mx-3" (click)="remove(item.id)">Remove</button>
                         </div>
                         <div class="col-3">
-                            <img src="{{item.imageUrl}}" alt="{{item.name}}-Image" class="img-thumbnail">
+                            <img src="{{item.imageUrl}}" alt="{{item.name}}-Image" class="img-thumbnail" (click)="view(item.id)">
                         </div>
                     </div>
                 </li>

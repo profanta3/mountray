@@ -53,4 +53,8 @@ export class AdminDashboardComponent implements OnInit {
   edit(ix: number) {
     this._router.navigate(['/admin/api/edit/', { id: ix}]);
   }
+
+  view(ix:number) {
+    this._router.navigate(['/view', { id: ix}]);
+  }
 }

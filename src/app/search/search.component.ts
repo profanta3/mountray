@@ -91,5 +91,9 @@ export class SearchComponent implements OnInit, OnChanges {
   getData() {
     return this.dataHandler.getDataLocal();
   }
+
+  view(ix:number) {
+    this.router.navigate(['/view', { id: ix}]);
+  }
 }
 
