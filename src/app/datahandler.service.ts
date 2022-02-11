@@ -21,9 +21,7 @@ export class DatahandlerService {
   }
 
   getDataLocal() {
-    //return this.http.get("https://raw.githubusercontent.com/profanta3/mountray/master/src/server/dataset.json?token=GHSAT0AAAAAABRFYKLOXBU4TRIPXYJMLAUWYP2TIKA");
     return this.http.get(`${this.baseUrl}`);
-    //return this.http.get("https://raw.githubusercontent.com/profanta3/SPA/main/server/dataset.json");
   }
 
   editData(id: number, newMountain: object) {
